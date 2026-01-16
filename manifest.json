@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Office.com Cookie Cleaner (Manual)",
   "version": "1.0",
-  "description": "Click the button to delete all cookies from office.com in every container.",
+    "description": "Adds a clickable button which will delete all office.com cookies, in every container.  This can solve login loops with Outlook and other office.com web services.",
   "permissions": [
     "cookies"
   ],
@@ -15,5 +15,10 @@
   "action": {
     "default_icon": "icon.ico",
     "default_title": "Delete office.com cookies"
+  },
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "@firefox-ext-delete-outlook-cookies"
   }
+}
 }
