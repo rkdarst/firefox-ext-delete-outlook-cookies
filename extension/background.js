@@ -1,4 +1,4 @@
-const targetDomain = "office.com";
+const targetDomains = ["office.com", "microsoftonline.com"];
 
 async function deleteOfficeCookies() {
   try {
@@ -10,20 +10,22 @@ async function deleteOfficeCookies() {
       //console.log("store:", store.id)
       // This function will only return cookies for which we have host
       // permission.  Anyway, we limit it to the target domain here.
-      let cookies = await browser.cookies.getAll({ domain: targetDomain, storeId: store.id });
-      for (let cookie of cookies) {
-        // Construct the URL from cookie info
-        let url =
-          (cookie.secure ? "https://" : "http://") +
-          cookie.domain.replace(/^\./, "") +
-          cookie.path;
+      for (let targetDomain of targetDomains) {
+          let cookies = await browser.cookies.getAll({ domain: targetDomain, storeId: store.id, firstPartyDomain: null, partitionKey: {} });
+        for (let cookie of cookies) {
+          // Construct the URL from cookie info
+          let url =
+            (cookie.secure ? "https://" : "http://") +
+            cookie.domain.replace(/^\./, "") +
+            cookie.path;
 
-        await browser.cookies.remove({
-          url,
-          name: cookie.name,
-          storeId: cookie.storeId
-        });
-        console.log(`Deleted cookie: ${cookie.name}`);
+          await browser.cookies.remove({
+            url,
+            name: cookie.name,
+            storeId: cookie.storeId
+          });
+          console.log(`Deleted cookie: ${cookie.name}`);
+        }
       }
     }
 

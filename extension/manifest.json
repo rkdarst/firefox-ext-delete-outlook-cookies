@@ -7,7 +7,8 @@
     "cookies"
   ],
   "host_permissions": [
-      "*://*.office.com/*"
+      "*://*.office.com/*",
+      "*://*.microsoftonline.com/*"
   ],
   "background": {
       "scripts": ["background.js"]
@@ -18,7 +19,7 @@
   },
   "browser_specific_settings": {
   "gecko": {
-    "id": "@firefox-ext-delete-outlook-cookies"
+    "id": "@browser-ext-delete-outlook-cookies"
   }
 }
 }
