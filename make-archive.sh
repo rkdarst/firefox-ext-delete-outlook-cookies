@@ -6,6 +6,8 @@ mkdir -p build
 
 echo '<a href="firefox-ext-delete-outlook-cookies.xpi">firefox-ext-delete-outlook-cookies.xpi</a>' > build/index.html
 
+cp firefox-update-manifest.json build/
+
 cd extension
 # Firefox version
 zip ../build/firefox-ext-delete-outlook-cookies.xpi \

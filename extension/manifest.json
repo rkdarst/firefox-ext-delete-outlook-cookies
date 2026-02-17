@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Office.com cookie deleter",
-  "version": "1.0",
+  "version": "0.1",
     "description": "Click the button to delete all cookies from office.com in every container.  This can be used to stop Outlook login loops, which must otherwise be solved by deleting the cookies manually.  No data is sent anywhere and no other actions happen.  This was quickly coded and not intended for public distribution yet, but it should work for anyone.",
   "permissions": [
     "cookies"
@@ -18,8 +18,9 @@
     "default_title": "Delete office.com cookies"
   },
   "browser_specific_settings": {
-  "gecko": {
-    "id": "@browser-ext-delete-outlook-cookies"
+    "gecko": {
+      "id": "@browser-ext-delete-outlook-cookies",
+      "update_url": "https://rkdarst.github.io/browser-ext-delete-outlook-cookies/firefox-update-manifest.json"
+    }
   }
-}
 }
